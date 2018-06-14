@@ -1,13 +1,22 @@
 // Add Event Listeners here:
 
+function main(){
+  $('.grid').on('mouseover','.cell', function(){
+    console.log('iii');
+    $(this).addClass('active');
+  })
 
+  $('button').click(function(){
+    createAndPlaceRows(8);
+  })
+};
 // When DOM is ready:
 $(() => {
     createAndPlaceRows(8);
   
     // Bind your event listeners here:
   });
-  
+
   
   
   
@@ -43,3 +52,5 @@ $(() => {
     const cells = $('.cell');
     cells.css({ height: cells.width() });
   }
+
+  $(main);
