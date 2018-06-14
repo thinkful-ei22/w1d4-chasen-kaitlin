@@ -1,27 +1,30 @@
 'use strict';
 
+
+
+// Target tumbnail image with mouse OR keyboard
+
+$('.thumbnail').on('keypress click', function() { 
+
+});
+console.log('hello');
+// Display image in the full-size image container at the top
+  
 function main() {
 
-  // Target tumbnail image with mouse OR keyboard
+  $('.thumbnail').on('keypress click', function () {
 
-  $('.thumbnail').on('click', function() {
+    let loc = $(this).find('img').attr('src');
 
-    // Display image in the full-size image container at the top
-   
-    $('.thumbnail img').click(function () {
-      let loc = $(this).attr('src');
+    // Update Image to clicked image
 
-      // Update Image to clicked image
+    $('.hero img').attr('src', loc);
 
-      $('.hero img').attr('src', loc);
+    // Updating image should also update alt attribute
 
-      // Updating image should also update alt attribute
-
-      let altAt = $(this).attr('alt');
+    let altAt = $(this).find('img').attr('alt');
       
-      $('.hero img').attr('alt', altAt);
-
-    });
+    $('.hero img').attr('alt', altAt);
 
   });
 
