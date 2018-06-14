@@ -4,7 +4,7 @@ function main (){
 
   ///be able to check and uncheck 
 
-  $('.shopping-item-toggle').on('click',  function(){
+  $('ul').on('click', '.shopping-item-toggle',  function(){
     console.log('ii');
 
     // toggle strikethrough
