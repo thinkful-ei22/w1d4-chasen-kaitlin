@@ -1,19 +1,34 @@
+'use strict';
+
 function main (){
-    ///addd item to list
 
-    $('.shopping-item-toggle').on('click', function(event){
-        // console.log('ii');
-         $('shopping-item-toggle' ).closest( "span" ).toggleClass("shopping-item__checked");  
-    });
+  ///be able to check and uncheck 
 
+  $('.shopping-item-toggle').on('click',  function(){
+    console.log('ii');
 
-    $('#js-shopping-list-form').submit(event => {
-        event.preventDefault();
-        const newItem = $('input[type=text][name=shopping-list-entry]').val();
+    // toggle strikethrough
+    $( this ).closest( 'li' ).find('.shopping-item').toggleClass('shopping-item__checked'); 
+  });
+ 
+  //targeting delete button
+  $('ul').on('click', '.shopping-item-delete', function() {
+
+    //delete closest <li> to the button
+    $( this ).closest( 'li' ).remove();
+
+  });
+
+  // add new item to shopping list
+
+  $('#js-shopping-list-form').submit(event => {
+   
+    event.preventDefault();
+    const newItem = $('input[type=text][name=shopping-list-entry]').val();
 
         
-        $('.shopping-list').append(
-           `<li> 
+    $('.shopping-list').append(
+      `<li> 
            <span class="shopping-item">${newItem}</span>
         <div class="shopping-item-controls">
           <button class="shopping-item-toggle">
@@ -24,21 +39,8 @@ function main (){
           </button>
         </div>
         </li>`
-        );
-        ///be able to check and uncheck 
-        
-        
-
-
-        ////and delete items
-
-
-    })
-
-
-
-
-
+    );
+  });
 }
 
 $(main);
